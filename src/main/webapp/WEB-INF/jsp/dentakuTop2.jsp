@@ -28,10 +28,6 @@ body {
 	padding-bottom:10px;
 }
 
-.header-icon2 {
-	margin-top: 40px
-}
-
 .header h1 {
 	text-align: center;
 	padding-top: 10px;
@@ -100,12 +96,6 @@ input {
 
 .c {
 	padding-left: 33px;
-}
-
-.footer {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
 }
 
 </style>

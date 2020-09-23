@@ -22,11 +22,7 @@ body {
 .header-icon {
 	margin-bottom: 20px;
 	padding-bottom:10px;
-}
-
-.header-icon2 {
-	margin-top: 40px
-}
+}s
 
 .header h1 {
 	text-align: center;
@@ -96,12 +92,6 @@ input {
 
 .c {
 	padding-left: 33px;
-}
-
-.footer {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
 }
 
 </style>
