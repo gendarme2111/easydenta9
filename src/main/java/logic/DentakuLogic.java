@@ -1,57 +1,60 @@
 package logic;
 
 public class DentakuLogic {
-	public int culc(String servletKeepingNum) {
+	public int culc(String numFromServlet) {
 
-		Checker c = new Checker();
-		String numFromChecker = c.check(servletKeepingNum);
+		Checker c = new Checker(); //不正な入力値をチェックするCheckerクラスを初期化
 
-		if(numFromChecker.equals("error")) {
-			return 0;
+		if(!c.check(numFromServlet)) { //入力値に不正があった場合の処理
+			return 0;//画面に0を表示する
 		}
-
-		String kigou = "";
+		//入力値が正常だった場合の処理
 		int indexofKigou = 0;
 		int result = 0;
+		String kigou = "";
 		String leftNum = "";
 		String rightNum = "";
 
-		for (int i = 0; i < numFromChecker.length(); i++) {
+		//for文で入力値を1文字づつ切り取り確認
+		for (int i = 0; i < numFromServlet.length(); i++) {
 
-			String str = numFromChecker.substring(i, i + 1);
+			String str = numFromServlet.substring(i, i + 1);
 
+			//切り取った文字が計算記号に当たった場合の処理
 			if (str.equals("+") || (str.equals("-")) || (str.equals("*")) || (str.equals("/"))) {
-				kigou = str;
-				indexofKigou = i;
+				kigou = str; //計算記号を変数kigouに格納
+				indexofKigou = i; //計算記号のindex番号を変数indexofKigouに格納
 
+				//入力値の計算記号より左側の数値を取り出す処理
 				for (int j = 0; j < i; j++) {
-					leftNum += numFromChecker.substring(j, j + 1);
+					leftNum += numFromServlet.substring(j, j + 1);
 				}
 			}
 		}
 
-		int x = Integer.parseInt(leftNum);
+		int x = Integer.parseInt(leftNum); //leftNumをint型に変換して変数xに格納
 
-		for (int i = indexofKigou + 1; i < numFromChecker.length(); i++) {
-			rightNum += numFromChecker.substring(i, i + 1);
+		//入力値の計算記号から右側の数値を取り出す処理
+		for (int i = indexofKigou + 1; i < numFromServlet.length(); i++) {
+			rightNum += numFromServlet.substring(i, i + 1);
 		}
-		int y = Integer.parseInt(rightNum);
+		int y = Integer.parseInt(rightNum); //rightNumをint型に変換して変数yに格納
 
-		if (kigou.equals("+")) {
+		if (kigou.equals("+")) { //足し算
 			result = x + y;
 		}
 
-		if (kigou.equals("-")) {
+		if (kigou.equals("-")) { //引き算
 			result = x - y;
 		}
-		if (kigou.equals("*")) {
+		if (kigou.equals("*")) { //掛け算
 			result = x * y;
 		}
-		if (kigou.equals("/")) {
+		if (kigou.equals("/")) { //割り算
 			result = x / y;
 		}
 
-		return result;
+		return result; //計算結果を戻り値で返す
 
 	}
 }

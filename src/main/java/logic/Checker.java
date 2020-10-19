@@ -5,23 +5,17 @@ import java.util.regex.Pattern;
 
 public class Checker {
 
-	String processNum;
+	public boolean check(String numFromServlet) {
 
-	public String check(String servletKeepingNum) {
-
-		String pattern = "^[0-9]+[\\+\\-\\*/][0-9]*[1-9]+";
+		String pattern = "^[0-9]+[\\+\\-\\*/][0-9]*[1-9]+"; //正規表現で入力値を確認
 		Pattern p = Pattern.compile(pattern);
-		Matcher m = p.matcher(servletKeepingNum);
-		boolean result = m.matches();
+		Matcher m = p.matcher(numFromServlet);
 
-		if (result) {
-			this.processNum = servletKeepingNum;
+		if (m.matches()) {
+			return true; //trueの場合は戻り値にtrueを返す
 		} else {
-			this.processNum = "error";
+			return false; //falseの場合は戻り値にfalseを返す
 
 		}
-
-		return this.processNum;
-
 	}
 }
