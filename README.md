@@ -1,2 +1,2 @@
 # easydenta9
- 簡単な電卓アプリ
+Servlet & JSP Ajaxを利用した簡易Web電卓アプリです
